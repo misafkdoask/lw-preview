@@ -1,0 +1,133 @@
+/* Market reviews (index + editions). Builds on site.css: same tokens, no new colours. */
+
+/* Shared */
+.rv-na { color: var(--grey-600); white-space: normal; }
+.rv-fn { display: block; font-size: 12px; line-height: 1.35; color: var(--grey-600); white-space: normal; }
+
+/* Tables (inside .prose, which supplies .tbl and the base table style) */
+.prose .rv-tbl { font-size: 15px; }
+.prose .rv-tbl caption { text-align: left; }
+.prose .rv-tbl th, .prose .rv-tbl td { padding: 10px 14px; }
+.prose .rv-tbl tbody th { background: none; color: var(--black); font-weight: 500; }
+.prose .rv-tbl th + td { border-left: 1px solid var(--grey-100); }
+.prose .rv-tbl tr:last-child th { border-bottom: 0; }
+.prose .rv-tbl .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.prose .rv-tbl thead .num { white-space: normal; }
+@media (max-width: 479px) { .prose .rv-tbl th, .prose .rv-tbl td { padding: 9px 10px; } .prose .rv-tbl { font-size: 14px; } }
+
+/* Index: latest edition */
+.rv-latest { display: grid; gap: 28px 56px; padding: clamp(24px, 4vw, 48px); background: var(--mint-card); border-radius: var(--radius); }
+.rv-latest__k { font: 500 15px/1.3 var(--body); color: var(--ink); }
+.rv-latest__d { margin-top: 12px; font: 500 clamp(28px, 3.2vw, 42px)/1.08 var(--display); letter-spacing: -.02em; }
+.rv-latest__m { margin-top: 12px; font-size: 16px; line-height: 1.5; color: var(--ink); }
+.rv-latest .btn { margin-top: 24px; }
+.rv-latest__l { counter-reset: art; display: grid; align-content: start; }
+.rv-latest__l li { counter-increment: art; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid var(--hair-light); }
+.rv-latest__l li:first-child { padding-top: 0; border-top: 0; }
+.rv-latest__l li::before { content: counter(art); font: 500 18px/1.35 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+.rv-latest__l a { font: 500 clamp(17px, 1.5vw, 20px)/1.35 var(--display); color: var(--black); text-decoration: none; }
+.rv-latest__l a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+@media (min-width: 900px) { .rv-latest { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+
+/* Index: charts */
+.rv-charts, .rv-arc { margin-top: clamp(56px, 7vw, 104px); }
+.rv-charts > .note { margin-top: 10px; }
+.rv-chart { container: rvc / inline-size; }
+.rv-chart--main { margin-top: 28px; }
+.rv-chart__cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; margin-bottom: 14px; }
+.rv-chart__n { font: 500 19px/1.25 var(--display); letter-spacing: -.01em; }
+.rv-chart__v { font: 500 19px/1.25 var(--display); }
+.rv-chart__d { flex-basis: 100%; font-size: 14px; line-height: 1.45; color: var(--grey-600); }
+.rv-chart--main .rv-chart__n, .rv-chart--main .rv-chart__v { font-size: clamp(20px, 1.9vw, 24px); }
+.rv-sm { display: grid; gap: 40px 56px; margin-top: 48px; }
+.rv-sm .rv-chart { padding-top: 18px; border-top: 1px solid var(--grey-100); }
+@media (min-width: 720px) { .rv-sm { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.rv-plot { display: grid; grid-template-columns: auto minmax(0, 1fr); padding-right: 10px; }
+.rv-yax, .rv-svg { display: block; overflow: visible; }
+.rv-yax text, .rv-svg text { font: 400 12px/1 var(--body); fill: var(--grey-600); font-variant-numeric: tabular-nums; }
+.rv-grid { stroke: var(--grey-100); stroke-width: 1; }
+.rv-tick { stroke: var(--grey-300); stroke-width: 1; }
+.rv-line { stroke: var(--ink); stroke-width: 2; stroke-linecap: round; fill: none; }
+.rv-dot, .rv-pt, .rv-last { fill: var(--ink); }
+.rv-last-ring { fill: var(--white); }
+.rv-hit { fill: transparent; }
+.rv-pt, .rv-x--m { display: none; }
+@container rvc (min-width: 720px) { .rv-pt, .rv-x--m { display: inline; } }
+
+/* Index: the same prices as a table */
+.rv-tv { margin-top: 44px; border-top: 1px solid var(--grey-100); border-bottom: 1px solid var(--grey-100); }
+.rv-tv summary { display: flex; align-items: center; gap: 16px; min-height: 52px; font-weight: 500; cursor: pointer; list-style: none; }
+.rv-tv summary::-webkit-details-marker { display: none; }
+.rv-tv summary::after { content: "+"; margin-left: auto; font-size: 20px; font-weight: 400; color: var(--grey-600); }
+.rv-tv[open] summary::after { content: "\2212"; }
+.rv-tv .prose { padding-bottom: 24px; }
+.rv-tv .note { margin-bottom: 14px; }
+.rv-tv .rv-tbl { min-width: 640px; }
+.rv-tv .rv-tbl tbody th { font-weight: 400; white-space: nowrap; }
+
+/* Index: archive */
+.rv-years { display: grid; gap: 52px; margin-top: 28px; }
+.rv-mon { display: grid; }
+.rv-mon + .rv-mon { margin-top: 12px; }
+.rv-mon__h { padding-top: 18px; font: 500 15px/1.4 var(--body); color: var(--ink); }
+.rv-arc .dl-i { grid-template-columns: minmax(0, 1fr); }
+.rv-arc .dl-i__m { grid-column: 1; grid-row: auto; font-size: 14px; color: var(--grey-600); }
+.rv-arc .dl-i__t, .rv-arc .dl-i__d { grid-column: 1; }
+@media (min-width: 600px) {
+  .rv-arc .dl-i { grid-template-columns: 8.5em minmax(0, 1fr); column-gap: 20px; }
+  .rv-arc .dl-i__m { grid-row: 1 / span 2; font-size: 15px; line-height: 1.35; color: var(--black); }
+  .rv-arc .dl-i__t, .rv-arc .dl-i__d { grid-column: 2; }
+}
+@media (min-width: 900px) {
+  .rv-mon { grid-template-columns: 160px minmax(0, 1fr); column-gap: 32px; }
+  .rv-mon + .rv-mon { margin-top: 0; }
+  .rv-mon__h { padding-top: 17px; }
+}
+
+/* Edition: market data */
+.rv-mk { display: grid; gap: 44px; }
+.rv-mk__c { display: grid; gap: 44px; align-content: start; }
+.prose.rv-mk h2 { margin: 0 0 14px; }
+.prose.rv-mk .tbl { margin: 0; }
+.rv-tnote { margin: -4px 0 12px; font-size: 15px; color: var(--ink); }
+@media (min-width: 960px) { .rv-mk { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; max-width: 1180px; align-items: start; } }
+
+/* Edition: text */
+.rv-read { max-width: 760px; margin-top: clamp(52px, 6vw, 80px); }
+.rv-read--first { margin-top: 0; }
+.prose .rv-art > h2 { margin-top: 0; }
+.rv-art { scroll-margin-top: calc(var(--hdr) + 20px); }
+.rv-art + .rv-art { margin-top: 44px; padding-top: 40px; border-top: 1px solid var(--grey-100); }
+.prose h2.rv-subh { margin: 36px 0 12px; font: 500 20px/1.3 var(--display); letter-spacing: -.005em; }
+.rv-close { margin-top: 44px; padding-top: 28px; border-top: 1.5px solid var(--black); }
+.prose .rv-close p { color: var(--black); font-size: 19px; line-height: 1.55; }
+
+/* Edition: references, sources, risk warning */
+.rv-end { display: grid; gap: 40px; max-width: 760px; margin-top: clamp(52px, 6vw, 80px); }
+.rv-end__h { margin-bottom: 12px; font: 500 20px/1.3 var(--display); letter-spacing: -.005em; }
+.rv-refs { display: grid; gap: 8px; padding-left: 22px; list-style: decimal; font-size: 15px; line-height: 1.5; }
+.rv-refs li::marker { color: var(--grey-600); }
+.rv-refs a { overflow-wrap: anywhere; }
+.rv-srcs { display: grid; gap: 4px; font-size: 15px; line-height: 1.5; color: var(--grey-700); }
+@media (min-width: 600px) {
+  .rv-srcs { display: flex; flex-wrap: wrap; }
+  .rv-srcs li + li::before { content: "\00B7"; margin: 0 10px; color: var(--grey-600); }
+}
+.rv-risk { padding: clamp(20px, 3vw, 32px); background: var(--grey-50); border-radius: var(--radius); }
+.rv-risk p { font-size: 15px; line-height: 1.6; color: var(--grey-700); max-width: 72ch; }
+.rv-risk p + p { margin-top: 10px; }
+
+/* Edition: previous / next */
+.rv-pn { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 760px; margin-top: 48px; }
+.rv-pn__a { display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border: 1px solid var(--grey-100); border-radius: var(--radius); color: var(--black); text-decoration: none; transition: border-color .2s var(--ease); }
+.rv-pn__a:hover { border-color: var(--black); }
+.rv-pn__a--next { grid-column: 2; text-align: right; }
+.rv-pn__k { font-size: 14px; color: var(--grey-600); }
+.rv-pn__t { font-weight: 500; line-height: 1.35; }
+.rv-pn__all { grid-column: 1 / -1; justify-self: start; margin-top: 8px; font-size: 15px; }
+
+@media print {
+  .rv-pn, .rv-tv summary { display: none !important; }
+  .rv-latest, .rv-risk { background: none; border: 1px solid var(--grey-100); }
+}
