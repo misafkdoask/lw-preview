@@ -171,6 +171,12 @@ a.dl-i:hover .arr { transform: translateX(3px); }
 .auth dl { margin: 0; }
 @media (min-width: 700px) { .auth { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+/* Documents published as PDF */
+.pdf-open { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.pdf-meta { font-size: 14px; color: var(--grey-600); }
+.pdfview { display: block; width: 100%; height: min(85vh, 1100px); margin-top: 28px; border: 1px solid var(--grey-100); border-radius: var(--radius); background: var(--grey-50); }
+@media (max-width: 699px) { .pdfview { display: none; } }
+
 /* Numbered steps (File a complaint) */
 .steps3, .prose .steps3 { display: grid; gap: 3px; margin: 8px 0 40px; padding: 0; list-style: none; }
 .prose .steps3 li, .prose .steps3 p { margin: 0; }
