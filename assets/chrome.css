@@ -16,7 +16,7 @@ main a.w-fit { max-width: 100%; overflow-wrap: anywhere; }
 
 .hdr, .ftr, .skip, [data-ph] {
   --black: #000; --white: #fff; --mint: #eaf4eb; --mint-deep: #b5d0b8; --ink: #323b33;
-  --grey-50: #f7f8f8; --grey-100: #e2e5e5; --grey-300: #a6a9a9; --grey-600: #5e5f5f; --grey-700: #1f1f1f;
+  --grey-50: #f7f8f8; --grey-100: #e2e5e5; --grey-300: #cdd0d0; --grey-600: #5e5f5f; --grey-700: #1f1f1f;
   --radius-sm: 3px; --pad: clamp(20px, 5.6vw, 80px); --ease: cubic-bezier(.2, .7, .1, 1);
   --lw-display: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --lw-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
