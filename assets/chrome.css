@@ -51,7 +51,8 @@ main a.w-fit { max-width: 100%; overflow-wrap: anywhere; }
 .hdr .btn:hover { background: var(--mint); border-color: var(--mint); }
 .hdr[data-theme="white"] .btn { background: var(--black); color: var(--white); border-color: var(--black); }
 .hdr[data-theme="white"] .btn:hover { background: var(--grey-700); border-color: var(--grey-700); }
-@media (max-width: 1023px) { .hdr .logo__tail { display: none; } }
+@media (max-width: 1279px) { .hdr .logo__tail, .hdr .nav__mr { display: none; } .hdr .nav__a--rv .nav__k { text-transform: capitalize; } }
+@media (max-width: 719px) { .hdr .nav__a--rv { display: none; } }
 @media (max-width: 599px) {
   .hdr .nav__for { display: none; } .hdr .nav__k { text-transform: capitalize; }
   .hdr__right, .hdr .nav { gap: 14px; }
