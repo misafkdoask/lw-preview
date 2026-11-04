@@ -53,20 +53,23 @@ main a.w-fit { max-width: 100%; overflow-wrap: anywhere; }
 .hdr[data-theme="white"] .btn:hover { background: var(--grey-700); border-color: var(--grey-700); }
 @media (max-width: 1279px) { .hdr .logo__tail, .hdr .nav__mr { display: none; } .hdr .nav__a--rv .nav__k { text-transform: capitalize; } }
 @media (max-width: 719px) { .hdr .nav__a--rv { display: none; } }
-@media (max-width: 599px) {
+@media (max-width: 767px) { .hdr .nav__lic { display: none; } }
+@media (min-width: 640px) and (max-width: 1023px) { .hdr__right, .hdr .nav { gap: 14px; } }
+@media (max-width: 639px) {
   .hdr .nav__for { display: none; } .hdr .nav__k { text-transform: capitalize; }
   .hdr__right, .hdr .nav { gap: 14px; }
   .hdr .login { width: 36px; padding: 0; justify-content: center; }
   .hdr .login__t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 @media (max-width: 459px) { .hdr .logo__name { display: none; } }
-@media (max-width: 359px) { .hdr__right, .hdr .nav { gap: 11px; } .hdr .nav__a { font-size: 13px; } }
+@media (max-width: 359px) { .hdr__right, .hdr .nav { gap: 8px; } .hdr .nav__a { font-size: 13px; } }
 @media (min-width: 1024px) {
   .hdr__right { gap: 32px; } .hdr .nav { gap: 28px; } .hdr .nav__a { font-size: 15px; }
   .hdr .login { min-height: 42px; padding: 0 16px; font-size: 15px; }
   .hdr .pm--logo { width: 30px; height: 30px; } .hdr .logo__name { font-size: 17px; }
   .hdr .btn { display: inline-flex; }
 }
+@media (min-width: 1024px) and (max-width: 1365px) { .hdr__right { gap: 22px; } .hdr .nav { gap: 18px; } }
 
 /* Market reviews page head (the export's header) as the black band of the home page */
 header[data-ph] { background: var(--black); color: var(--white); padding-top: 20px; padding-bottom: clamp(32px, 4.5vw, 56px); }
